@@ -15,3 +15,11 @@ func Equal[T common.Equatable[T]](t assert.TestingT, expected, actual T, msgAndA
 
 	return true
 }
+
+func NotEqual[T common.Equatable[T]](t assert.TestingT, expected, actual T, msgAndArgs ...interface{}) bool {
+	if expected.Equal(actual) {
+		return assert.Fail(t, fmt.Sprintf("Should not be: %#v\n", actual), msgAndArgs...)
+	}
+
+	return true
+}

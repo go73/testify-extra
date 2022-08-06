@@ -13,3 +13,9 @@ func Equal[T common.Equatable[T]](t require.TestingT, expected, actual T, msgAnd
 			"actual  : %v", expected, actual), msgAndArgs...)
 	}
 }
+
+func NotEqual[T common.Equatable[T]](t require.TestingT, expected, actual T, msgAndArgs ...interface{}) {
+	if expected.Equal(actual) {
+		require.Fail(t, fmt.Sprintf("Should not be: %#v\n", actual), msgAndArgs...)
+	}
+}
