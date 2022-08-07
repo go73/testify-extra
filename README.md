@@ -28,7 +28,7 @@ package yours
 import (
 	"testing"
 	"time"
-	"github.com/go37/testify-extra/assert"
+	"github.com/go73/testify-extra/assert"
 )
 
 func TestSomething(t *testing.T) {
