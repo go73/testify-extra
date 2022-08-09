@@ -7,12 +7,13 @@ Delegating Equal()/NotEqual()
 -----------------------------
 Testify's `Equal()` implementation uses
 [`reflect.DeepEqual(...)`](https://github.com/stretchr/testify/blob/v1.8.0/assert/assertions.go#L66)
-to check for equality. This makes sense when comparing most values, however
+to check for equality. This is a sensible default for Go values, however
 there are certain types that are semantically equivalent even though they are
 not strictly equal using this method.
 
-In such cases, the de facto standard is to use an `Equal(T) bool` method to
-define semantic equivalence. This is used within the Go standard library:
+In such cases, the de facto approach is to have the type implement its own
+definition of semantic equivalence in an `Equal(T) bool` method.
+This is used within the Go standard library:
 
 - [net.IP](https://pkg.go.dev/net#IP.Equal)
 - [time.Time](https://pkg.go.dev/time#Time.Equal)
