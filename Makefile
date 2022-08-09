@@ -6,7 +6,7 @@ test:
 	@go test -v -coverprofile coverage.out ./...
 	@go tool cover -html=coverage.out -o coverage.html
 
-.PHONE: fuzz
+.PHONY: fuzz
 fuzz: FUZZTIME=3s
 fuzz:
 	@go test -v -run=FuzzEqualWithEqualInput -fuzz=FuzzEqualWithEqualInput -fuzztime=$(FUZZTIME) github.com/go73/testify-extra/assert
