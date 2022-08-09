@@ -23,13 +23,14 @@ And is also adopted by some third-party libraries:
 - [decimal.Decimal](https://pkg.go.dev/github.com/shopspring/decimal#Decimal.Equal)
 
 `assert` example shown here, but the `require` version is available as well:
+
 ```go
 package yours
 
 import (
+	"github.com/go73/testify-extra/assert"
 	"testing"
 	"time"
-	"github.com/go73/testify-extra/assert"
 )
 
 func TestSomething(t *testing.T) {
